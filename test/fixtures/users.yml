@@ -1,0 +1,9 @@
+
+one:
+  name: dima
+  email: ad@mail.ru
+  encrypted_password: 123456
+two:
+  name: alex
+  email: sr@mai.ru
+  encrypted_password: 123456

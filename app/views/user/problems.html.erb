@@ -1,0 +1,30 @@
+<h1><%= t('your_posted_problems') %></h1>
+
+
+<table>
+  <tr>
+    <th><%= t('title') %></th>
+    <th width="50%"><%= t('text') %></th>
+    <th><%= t('answer') %></th>
+    <th><%= t('number_of_users') %></th>
+  </tr>
+<% @list.each do |problem| %>
+  <tr>
+    <td><%= problem.title %></td>
+    <td width="50%"><%= problem.text %></td>
+    <td><%= problem.answer %></td>
+    <td> <%= problem.count %></td>
+    <td>
+      <%= button_to t('edit'),  {action: 'edit', controller: 'problem',
+                              problem_id: problem.id}, method: 'post'%>
+    </td>
+    <td>
+      <%= button_to t('delete'),
+                    {action: 'delete', controller: 'problem',
+                     problem_id: problem.id},data: {confirm: t('confirm_delete')},
+                    method: 'delete',
+                    remote: true,id: problem.id.to_s %>
+    </td>
+  </tr>
+<% end %>
+</table>

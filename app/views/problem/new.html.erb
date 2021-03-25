@@ -1,0 +1,27 @@
+<h1><%= t('suggest_problem') %></h1>
+<p></p>
+
+<% unless @notice.nil? %>
+
+  <div class ='container warning'>
+    <%=@notice %>
+  </div>
+
+<%end %>
+
+
+<%= form_tag("/problem/post", :method => "get", id: 'new_problem_from') do %>
+  <%= label_tag(t('label_title')) %>
+  <%= text_field_tag(:title,nil,size:40) %>
+    <br/>
+    <%= label_tag(t('label_title')) %>
+    <%= text_area_tag(:text,nil,placeholder:t('formulate_problem'),cols:40) %>
+
+    <br/>
+    <br/>
+    <%= label_tag(t('label_answer')) %>
+    <%= number_field_tag(:answer) %>
+    <br/>
+    <br/>
+  <%= submit_tag(t('post')) %>
+<% end %>

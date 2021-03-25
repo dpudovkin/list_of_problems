@@ -1,0 +1,10 @@
+<h1><%= t('my_profile') %></h1>
+<p><%= t('label_name') %> <%= current_user.name %></p>
+<p><%= t('label_email') %> <%= current_user.email %></p>
+<p><%= t('label_score') %> <%= @score %></p>
+<%= link_to t('my_problems'), user_problems_path, method: :get %>
+<%= link_to t('add_problem'), problem_new_path, method: :get %>
+<br>
+<%= link_to t('log_out'), destroy_user_session_path, :method => :delete, class: 'logout' %>
+
+

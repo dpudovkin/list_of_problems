@@ -1,0 +1,25 @@
+
+<% unless @notice.nil? %>
+
+    <div class ='container warning'>
+      <%=@notice %>
+    </div>
+
+<%end %>
+
+<%= form_tag(problem_save_path, :method => "get", id: 'edit_problem_form') do %>
+  <%= label_tag(t('label_title')) %>
+  <%= text_field_tag(:title, @title,size:40) %>
+  <br/>
+  <%= label_tag(t('label_text')) %>
+  <%= text_area_tag(:text,@text, cols:40) %>
+  <br/>
+  <br/>
+  <%= label_tag(t('label_answer')) %>
+  <%= number_field_tag(:answer, @answer) %>
+  <br/>
+  <br/>
+  <%= hidden_field_tag :problem_id , @edit_problem.id %>
+  <%= submit_tag(t('save')) %>
+
+<% end %>

@@ -1,0 +1,23 @@
+<% if @correct_answer %>
+msg = $("#<%=@id%>").find(".message");
+msg.removeClass('wrong');
+msg.removeClass('not-visible');
+msg.addClass('visible');
+msg.addClass('correct');
+msg.empty();
+msg.append('<%=t('correct')%>');
+img  = $("#<%=@id%>").find('img').first();
+img.removeClass('not-visible');
+img.addClass('visible');
+
+$('div.score').empty();
+$('div.score').append('<%=@score %>');
+<% else %>
+msg = $("#<%=@id%>").find(".message").first();
+msg.empty();
+msg.append("<%=t('wrong')%>");
+msg.removeClass('correct');
+msg.removeClass('not-visible');
+msg.addClass('visible');
+msg.addClass('wrong');
+<% end %>

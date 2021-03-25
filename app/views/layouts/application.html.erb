@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <%=image_tag("icon.png", class: "visible icon")%>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= button_to t('problems'),
+                      problem_all_path,
+                      method: 'get',class:"btn btn-primary left-margin"
+        %>
+      </li>
+      <li class="nav-item active">
+        <%= button_to t('rating'),
+                      user_rating_path,
+                      method: 'get',class:"btn btn-warning left-margin"
+        %>
+      </li>
+      </ul>
+
+      <% if user_signed_in? && (current_page?(problem_all_path) or current_page?(root_path))%>
+
+      <%= form_tag(problem_all_path, :method => "get", class: "form-inline my-2 my-lg-0") do %>
+        <%= text_field_tag(:text,@search_text,class: "form-control mr-sm-2", type:"search",placeholder:t('search'),'aria-label':t('search')) %>
+        <%= submit_tag(t('search'),class: "btn btn-outline-success my-2 my-sm-0" ,type:"submit") %>
+      <% end %>
+
+      <% end %>
+
+      <% if user_signed_in? %>
+
+     <div class="score"> <%= UserController.calc_score(current_user.id) %></div>
+
+      <%=image_tag("star.png", class: "star")%>
+
+      <%= button_to t('my_profile'),
+                    user_profile_path,
+                    method: 'get',class:"btn btn-secondary left-margin"
+      %>
+
+     <% else %>
+    <%= button_to t("log_in"),
+                  new_user_session_path ,
+                    method: 'get',class:"btn btn-secondary left-margin"
+      %>
+    <% end %>
+
+      <%=link_to "Рус", {locale: :ru}, class: "nav-link " %>
+      <%=link_to "En", {locale: :en}, class: "nav-link" %>
+
+  </div>
+</nav>
+<html>
+  <head>
+    <title>MathProblems</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="margin: 20px">
+    <%= yield %>
+  </body>
+</html>

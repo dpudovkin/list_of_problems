@@ -1,0 +1,70 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+
+  msg_title_presense: 'The title field must be filled in'
+  msg_title_legth: 'The minimum name length is 8 characters'
+
+
+  problems: "Problems"
+  rating: "Rating"
+  search: "Search"
+  my_profile: 'My profile'
+  log_in: 'Log in'
+  authorization_required: 'Log in to start solving problems.'
+  answer: 'Answer'
+  correct: 'Correct!'
+  wrong: 'Wrong!'
+  label_title: 'Title:'
+  label_text: 'Text:'
+  label_answer: 'Answer:'
+  save: 'Save'
+  post: 'Post'
+  edit: 'Edit'
+  delete: 'Delete'
+  your_posted_problems: 'Your posted problems'
+  title: 'Title'
+  text: 'Text'
+  number_of_users: 'The number of users who solved the problem'
+  confirm_delete: 'Are you sure you want to delete your task?'
+  label_name: 'Name:'
+  label_score: 'Score:'
+  label_email: 'Email:'
+  my_problems: 'My problems'
+  add_problem: 'Add problem'
+  log_out: 'Log out'
+  current_rating: 'Current rating'
+  postion: 'Position'
+  name: 'Name'
+  score: 'Score'
+  suggest_problem: 'Suggest your own math problem'
+  formulate_problem: "Try to formulate the problem text clearly and concisely"

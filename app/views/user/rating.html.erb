@@ -1,0 +1,15 @@
+<h1><%= t('current_rating') %></h1>
+<table>
+  <tr>
+    <th><%= t('postion') %></th>
+    <th><%= t('name') %></th>
+    <th><%= t('score') %></th>
+  </tr>
+  <% @users.length.times do |i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= @users[i].name %></td>
+      <td><%= @users[i].score %></td>
+    </tr>
+  <% end %>
+</table>
